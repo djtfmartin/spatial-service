@@ -85,13 +85,18 @@
                 </g:link>
                     <g:if test="${!item.containsKey('layer_id')}">
                         <br/>
-                        <g:link controller="manageLayers" action="distribution" class="btn btn-sm btn-default"
-                                id="${item.containsKey('data_resource_uid') ? item.data_resource_uid : item.raw_id}">
-                            <g:if test="${!item.containsKey('data_resource_uid')}">import as expert distribution</g:if>
-                        </g:link><g:if
-                            test="${item.containsKey('data_resource_uid')}">Expert distribution exists: ${item.data_resource_uid}
-                        <g:link controller="manageLayers" action="delete" class="btn btn-sm btn-danger"
-                                id="${item.raw_id}"> <i class="glyphicon glyphicon-remove"></i> delete distribution</g:link></g:if>
+
+                            <g:if test="${!item.containsKey('data_resource_uid')}">
+                                <g:link controller="manageLayers" action="distribution" class="btn btn-sm btn-default" id="${item.raw_id}">
+                                    Import as expert distribution
+                                </g:link>
+                            </g:if>
+                            <g:else>
+                                Expert distribution: ${item.data_resource_uid}
+                                <g:link controller="manageLayers" action="delete" class="btn btn-sm btn-danger" id="${item.raw_id}">
+                                    <i class="glyphicon glyphicon-remove"></i> Delete distribution
+                                </g:link>
+                            </g:else>
                         <br/>
                         <g:link controller="manageLayers" action="checklist" class="btn btn-sm btn-default"
                                 id="${item.containsKey('checklist') ? item.checklist : item.raw_id}">

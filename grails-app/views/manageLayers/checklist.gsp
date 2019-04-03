@@ -3,20 +3,13 @@
 <head>
     <title>Checklist</title>
     <meta name="layout" content="main"/>
+    <meta name="breadcrumbs" content="${g.createLink( controller: 'main', action: 'index')}, Spatial Service"/>
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'fluid.css')}" type="text/css">
 </head>
 <body class="fluid">
-<ul class="breadcrumb">
-    <li><g:link controller="main" action="index">Home</g:link></li>
-    <li><g:link controller="manageLayers" action="layers">Layers</g:link></li>
-    <li class="active">${has_layer ? "Edit Layer" : "Create Layer"}</li>
-    <br>
-    <li><g:link controller="manageLayers" action="layers">Layers</g:link></li>
-    <li><g:link controller="manageLayers" action="uploads">Uploads</g:link></li>
-    <li><g:link controller="tasks" action="index">Tasks</g:link></li>
-    <li><g:link controller="manageLayers" action="remote">Copy Layer</g:link></li>
-</ul>
-
+<h1>
+    Import Checklist
+</h1>
 <g:if test="${error != null}">
     <b class="error">${error}</b>
     <br/>
